@@ -3,7 +3,7 @@ The below lines of code generate the overall project structure.
 ```
 cd ./SUPERCOMPUTING
 mkdir assignments
-cd ./assignments
+cd assignments/
 mkdir ./assignment_01
 mkdir ./assignment_01/data
 mkdir ./assignment_01/data/raw
