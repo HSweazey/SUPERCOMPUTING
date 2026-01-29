@@ -1,5 +1,5 @@
 # ASSIGNMENT 1 COMMAND LOGS
-The below lines of code generate the overall project structure
+The below lines of code generate the overall project structure. 
 ```
 cd ./SUPERCOMPUTING
 mkdir assignments
