@@ -26,9 +26,3 @@ touch ./assignment_1/logs/example.txt
 touch ./assignment_1/README.md
 touch ./assignment_1/assignment_1_essay.md
 ```
-The below lines of code are purely for logging the GitHub commands for the comprehensiveness of this log
-```
-git add .
-git commit -m "Assignment 1 directory structure, changelog, essay, and gitignore"
-git push
-```
