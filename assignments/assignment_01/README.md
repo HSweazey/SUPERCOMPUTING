@@ -16,13 +16,13 @@ mkdir ./assignment_01/logs
 ```
 The below lines of code generate placeholder text files as well as the necessary markdown files.
 ```
-touch ./assignment_1/data/clean/example.txt
-touch ./assignment_1/data/raw/example.txt
-touch ./assignment_1/scripts/example.txt
-touch ./assignment_1/results/example.txt
-touch ./assignment_1/docs/example.txt
-touch ./assignment_1/config/example.txt
-touch ./assignment_1/logs/example.txt
-touch ./assignment_1/README.md
-touch ./assignment_1/assignment_01_essay.md
+touch ./assignment_01/data/clean/example.txt
+touch ./assignment_01/data/raw/example.txt
+touch ./assignment_01/scripts/example.txt
+touch ./assignment_01/results/example.txt
+touch ./assignment_01/docs/example.txt
+touch ./assignment_01/config/example.txt
+touch ./assignment_01/logs/example.txt
+touch ./assignment_01/README.md
+touch ./assignment_01/assignment_01_essay.md
 ```
