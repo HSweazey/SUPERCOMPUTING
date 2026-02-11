@@ -1,6 +1,7 @@
 # Supercomputing Assignment 2
-Name: Hannah Sweazey
-Due Date: February 12, 2026
+**Name:** Hannah Sweazey
+
+**Due Date:** February 12, 2026
 
 In this assignment, we were tasked with: 
 - Using ftp to download files
@@ -19,7 +20,7 @@ assignment_02/
 ```
 ## Commands for Task 2
 
-```python
+```bash
 ftp ftp.ncbi.nlm.nih.gov
 login credentials (anonymous, email)
 passive
@@ -39,7 +40,7 @@ bye
 - Drag and drop files into HPC folder
 - Log on to HPC and make files readable using below commands
 
-```python
+```bash
 cd SUPERCOMPUTING
 cd assignments
 cd assignment_02
@@ -50,8 +51,8 @@ chmod 644 GCF_000005845.2_ASM584v2_genomic.gff.gz
 
 ## Commands for Task 4
 
-```python
-# HPC hash integrity check
+```bash
+echo "HPC hash integrity check"
 
 md5sum GCF_000005845.2_ASM584v2_genomic.fna.gz 
 e1b894042b53655594a1623a7e0bb63f  GCF_000005845.2_ASM584v2_genomic.fna.gz
@@ -59,29 +60,29 @@ e1b894042b53655594a1623a7e0bb63f  GCF_000005845.2_ASM584v2_genomic.fna.gz
 md5sum GCF_000005845.2_ASM584v2_genomic.gff.gz 
 494dc5999874e584134da5818ffac925  GCF_000005845.2_ASM584v2_genomic.gff.gz
 ```
-```python
-# Local machine hash integrity check
+```bash
+echo "Local machine hash integrity check"
 
 md5sum GCF_000005845.2_ASM584v2_genomic.fna.gz 
 e1b894042b53655594a1623a7e0bb63f  GCF_000005845.2_ASM584v2_genomic.fna.gz
 
 md5sum GCF_000005845.2_ASM584v2_genomic.gff.gz 
 494dc5999874e584134da5818ffac925  GCF_000005845.2_ASM584v2_genomic.gff.gz
-# the returned hashes match
+echo "the returned hashes match"
 ```
 
 ## Descriptions for Task 5
 
-```python
-# moves to the parent directory, clears the terminal, prints working directory, 
-# and prints contents with folders coming first
+```bash
+echo "moves to the parent directory, clears the terminal, prints working directory" 
+echo "and prints contents with folders coming first"
 alias u='cd ..;clear;pwd;ls -alFh --group-directories-first'
 
-# moves to last working directory, clears terminal, prints working directory, 
-# and prints contents with folders coming first
+echo "moves to last working directory, clears terminal, prints working directory" 
+echo "and prints contents with folders coming first"
 alias d='cd -;clear;pwd;ls -alFh --group-directories-first'
 
-# lists all directory contents in long, human-readable format
+echo "lists all directory contents in long, human-readable format"
 alias ll='ls -alFh --group-directories-first'
 ```
 
