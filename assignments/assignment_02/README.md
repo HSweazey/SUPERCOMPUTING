@@ -1,4 +1,4 @@
-#Supercomputing Assignment 2
+# Supercomputing Assignment 2
 Name: Hannah Sweazey
 Due Date: February 12, 2026
 
@@ -17,7 +17,7 @@ assignment_02/
     ├── GCF_000005845.2_ASM584v2_genomic.fna.gz
     └── GCF_000005845.2_ASM584v2_genomic.gff.gz
 ```
-##Commands for Task 2
+## Commands for Task 2
 
 ```python
 ftp ftp.ncbi.nlm.nih.gov
@@ -30,7 +30,7 @@ mget GCF_000005845.2_ASM584v2_genomic.gff.gz
 bye
 ```
 
-##Workflow for Task 3
+## Workflow for Task 3
 
 - Open FireZilla
 - Connect to bora using HPC credentials
@@ -48,7 +48,7 @@ chmod 644 GCF_000005845.2_ASM584v2_genomic.fna.gz
 chmod 644 GCF_000005845.2_ASM584v2_genomic.gff.gz
 ```
 
-##Commands for Task 4
+## Commands for Task 4
 
 ```python
 # HPC hash integrity check
@@ -70,7 +70,7 @@ md5sum GCF_000005845.2_ASM584v2_genomic.gff.gz
 # the returned hashes match
 ```
 
-##Descriptions for Task 5
+## Descriptions for Task 5
 
 ```python
 # moves to the parent directory, clears the terminal, prints working directory, 
@@ -85,7 +85,7 @@ alias d='cd -;clear;pwd;ls -alFh --group-directories-first'
 alias ll='ls -alFh --group-directories-first'
 ```
 
-##Reflection
+## Reflection
 
 Overall, I enjoyed this assignment because it is easier for me to process what I
 learn by applying it. The major challenge I faced was letting my computer 
