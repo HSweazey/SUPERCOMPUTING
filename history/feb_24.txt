@@ -1,0 +1,234 @@
+echo $PATH
+which cd
+tree
+echo ${PATH}:newlocation
+programs
+cd programs
+ll
+nano greet
+u
+greet.sh
+d
+rm greet
+nano greet.sh
+u
+bash greet.sh
+bash greet.sh Hannah
+d
+greet.sh
+greet
+cat greet.sh
+greet.sh Hannah
+rm greet.sh
+u
+cd programs/
+ll
+nano greet.sh
+./greet.sh Hannah
+ll
+chmod +x greet.sh
+./greet.sh Hannah
+pwd
+export PATH=$PATH:/sciclone/home/hrsweazey/programs
+which greet.sh
+cd
+cd scr10
+greet.sh Bob
+cd
+nano .bashrc
+cd programs/
+nano count_lines.sh
+cd
+bash ./count_lines.sh ./SUPERCOMPUTING/assignments/assignment_03/data/GCF_000001735.4_TAIR10.1_genomic.fna 
+./count_lines.sh ./SUPERCOMPUTING/assignments/assignment_03/data/GCF_000001735.4_TAIR10.1_genomic.fna 
+count_lines.sh ./SUPERCOMPUTING/assignments/assignment_03/data/GCF_000001735.4_TAIR10.1_genomic.fna 
+count_lines.sh programs/gh_2.74.0_linux_amd64/
+cd programs/
+count_lines.sh count_lines.sh
+chmod 1 count_lines.sh
+ll
+chmod 755 count_lines.sh
+ll
+u
+count_lines.sh count_lines.sh
+count_lines.sh ./count_lines.sh
+cd programs/
+ll
+count_lines.sh greet.sh
+u
+cd SUPERCOMPUTING/
+git status
+git pull
+cd lessons/
+mkdir lesson_04
+cd lesson_04
+nano first_last
+chmod 755 first_last 
+ll
+pwd
+u
+nsno .bashrc
+nano .bashrc
+cd SUPERCOMPUTING/lessons/lesson_04
+ll
+exec bash
+first_last first_last
+ll
+pwd
+u
+nano .bashrc
+d
+cd SUPERCOMPUTING/
+cd lessons/lesson_04
+exec bash
+first_last first_last
+nano first_last 
+first_last first_last
+u
+first_last lesson_03/seqs.fasta 
+cd lesson_04
+nano first_last 
+first_last lesson_03/seqs.fasta 
+u
+first_last lesson_03/seqs.fasta 
+cd lesson_04
+nano first_last 
+u
+first_last lesson_03/seqs.fasta 
+cd lesson_04
+pwd
+u
+cd lesson_03
+ll
+cd practice/
+ll
+cd Chapter_3_Practice_Files
+ll
+first_last story.txt
+first_last C2.txt
+u
+cd lesson_04
+u
+cd
+nano .bashrc
+for VAR in {1..3}:do echo "Number $VAR";done
+for VAR in {1..3};do echo "Number $VAR";done
+cd programs/
+cd
+mkdir SUPERCOMPUTING/history
+cd programs/
+nano save_history.sh
+u
+cd SUPERCOMPUTING/
+pwd
+ll
+cd history/
+pwd
+cd
+cd programs/
+nano save_history.sh 
+chmod 755 save_history.sh 
+ll
+cd
+history -a
+echo $HOME
+history -a
+history -a
+# 2. Retrieve the command history and paste it into the file.
+# The 'sed' command cleans up the output by removing the history line numbers
+# so you get a clean list of just the commands.
+history | sed 's/^[ \t]*[0-9]*[ \t]*//' > "$OUTPUT_FILE"
+echo "Success! Your command history has been saved to: $OUTPUT_FILE"
+echo "Success! Your command history has been saved to: $OUTPUT_FILE"
+# 2. Retrieve the history and use 'awk' to filter it
+# This script looks for the last time "exit" was used and prints everything after it
+history | awk '
+# If the line is exactly the command "exit" (ignoring the history number)
+/^[ \t]*[0-9]+[ \t]+exit[ \t]*$/ {
+last_exit = NR
+}
+{
+# Remove the history number from the beginning of the line
+sub(/^[ \t]*[0-9]+[ \t]+/, "")
+# Store the clean command in memory
+lines[NR] = $0
+}
+END {
+# Start printing ONE line after the last exit. 
+# (If "exit" isn'\''t found, start at line 1).
+start = (last_exit > 0) ? last_exit + 1 : 1
+
+for (i = start; i <= NR; i++) {
+print lines[i]
+}
+}
+' > "$OUTPUT_FILE"
+echo "Success! Commands since your last 'exit' saved to: $OUTPUT_FILE"
+cd programs/
+nano save_history.sh 
+rm save_history.sh 
+nano save_history.sh 
+u
+cd SUPERCOMPUTING/
+cd history/
+ll
+rm feb_24.txt 
+pwd
+u
+cd programs/
+ll
+nano save_history.sh 
+u
+save_history.sh feb_24_2.txt
+chmod 755 ./programs/save_history.sh 
+save_history.sh feb_24_2.txt
+nano SUPERCOMPUTING/history/feb_24_2.txt 
+history -a
+history -a
+# 2. Retrieve the history and use 'awk' to filter it
+# This script looks for the last time "exit" was used and prints everything after it
+history | awk '
+# If the line is exactly the command "exit" (ignoring the history number)
+/^[ \t]*[0-9]+[ \t]+exit[ \t]*$/ {
+last_exit = NR
+}
+{
+# Remove the history number from the beginning of the line
+sub(/^[ \t]*[0-9]+[ \t]+/, "")
+# Store the clean command in memory
+lines[NR] = $0
+}
+END {
+# Start printing ONE line after the last exit. 
+# (If "exit" isn'\''t found, start at line 1).
+start = (last_exit > 0) ? last_exit + 1 : 1
+
+for (i = start; i <= NR; i++) {
+print lines[i]
+}
+}
+' > "$OUTPUT_FILE"
+echo "Success! Commands since your last 'exit' saved to: $OUTPUT_FILE"
+# 2. Retrieve the history and use 'awk' to filter it
+# This script looks for the last time "exit" was used and prints everything after it
+history | awk '
+    # If the line is exactly the command "exit" (ignoring the history number)
+    /^[ \t]*[0-9]+[ \t]+exit[ \t]*$/ {
+        last_exit = NR
+    }
+    {
+        # Remove the history number from the beginning of the line
+        sub(/^[ \t]*[0-9]+[ \t]+/, "")
+        # Store the clean command in memory
+        lines[NR] = $0
+    }
+    END {
+        # Start printing ONE line after the last exit. 
+        # (If "exit" isn'\''t found, start at line 1).
+        start = (last_exit > 0) ? last_exit + 1 : 1
+        
+        for (i = start; i <= NR; i++) {
+            print lines[i]
+        }
+    }
+' > "$OUTPUT_FILE"
