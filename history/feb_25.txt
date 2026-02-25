@@ -1,0 +1,130 @@
+save_history.sh feb_24.txt
+cd SUPERCOMPUTING/history/
+ll
+cat feb_24.txt 
+nano feb_24.txt 
+ll
+cd programs/
+wget https://github.com/cli/cli/releases/download/v2.74.2/gh_2.74.2_linux_amd64.tar.gz
+tar -xzvf file.tar.gz
+tar -xzvf gh_2.74.2_linux_amd64.tar.gz
+ll
+nano install_gh.sh
+nano install_seqtk.sh
+ll
+install_seqtk.sh
+cmod 755 install_gh.sh
+chmod 755 install_gh.sh 
+chmod 755 install_seqtk.sh 
+install_seqtk.sh
+nano
+ll
+nano install_gh.sh 
+nano install_seqtk.sh 
+install_seqtk.sh
+ll
+install_gh.sh 
+ll
+rm gh_2.74.2_linux_amd64.tar.gz.1
+ll
+~/.bashrc
+nano ~/.bashrc
+nano install_seqtk.sh 
+install_seqtk.sh
+rmdir seqtk/
+rm -r seqtk/
+ll
+install_seqtk.sh
+rm -rf seqtk/
+ll
+install_seqtk.sh
+ll
+nano ~/.bashrc
+nano install_seqtk.sh 
+rm -rf seqtk/
+ll
+exec ~/.bashrc
+cat $HOME/SUPERCOMPUTING/history/feb_24.txt 
+exe
+cd
+exec .bashrc
+ll
+exec .bashrc
+nano .bashrc
+source ~/.bashrc
+cd programs/
+ll
+install_seqtk.sh 
+nano ~/.bashrc
+nano install_seqtk.sh 
+ll
+rm -rf seqtk/
+source ~/.bashrc
+install_seqtk.sh 
+ll
+nano ~/.bashrc
+cd
+cd SUPERCOMPUTING/
+cd assignments/assignment_03
+ll
+cd data/
+ll
+cat GCF_000001735.4_TAIR10.1_genomic.fnaq |seqtk seq -a 
+cat GCF_000001735.4_TAIR10.1_genomic.fna|seqtk seq -a 
+source ~/.bashrc
+seqtk seq -a GCF_000001735.4_TAIR10.1_genomic.fna > test.fa
+cat test.fa 
+ll
+cd programs/
+ll
+nano install_seqtk.sh 
+u
+cd SUPERCOMPUTING/assignments/assignment_03
+ll
+u
+touch assignment_04/summarize_fasta.sh
+nano assignment_04/summarize_fasta.sh 
+chmod 755 assignment_04/summarize_fasta.sh 
+assignment_04/summarize_fasta.sh assignment_03/data/GCF_000001735.4_TAIR10.1_genomic.fna 
+nano assignment_04/summarize_fasta.sh 
+source .bashrc
+source ~/.bashrc
+nano assignment_04/summarize_fasta.sh 
+assignment_04/summarize_fasta.sh assignment_03/data/GCF_000001735.4_TAIR10.1_genomic.fna 
+nano ~/.bashrc
+nano assignment_04/summarize_fasta.sh 
+seqtk
+nano assignment_04/summarize_fasta.sh 
+seqtk comp assignment_03/data/GCF_000001735.4_TAIR10.1_genomic.fna 
+seqtk comp assignment_03/data/GCF_000001735.4_TAIR10.1_genomic.fna|wc -l
+grep -v "^>" _wc -c
+grep -v "^>" assignment_03/data/GCF_000001735.4_TAIR10.1_genomic.fna|wc -c
+grep -v "^>,/n" assignment_03/data/GCF_000001735.4_TAIR10.1_genomic.fna|wc -c
+grep -v "^[>,\n]" assignment_03/data/GCF_000001735.4_TAIR10.1_genomic.fna|wc -c
+which seqtk
+bash assignment_04/summarize_fasta.sh 
+bash assignment_04/summarize_fasta.sh assignment_03/data/GCF_000001735.4_TAIR10.1_genomic.fna 
+history -a
+# 2. Retrieve the history and use 'awk' to filter it
+# This script looks for the last time "exit" was used and prints everything after it
+history | awk '
+    # If the line is exactly the command "exit" (ignoring the history number)
+    /^[ \t]*[0-9]+[ \t]+exit[ \t]*$/ {
+        last_exit = NR
+    }
+    {
+        # Remove the history number from the beginning of the line
+        sub(/^[ \t]*[0-9]+[ \t]+/, "")
+        # Store the clean command in memory
+        lines[NR] = $0
+    }
+    END {
+        # Start printing ONE line after the last exit. 
+        # (If "exit" isn'\''t found, start at line 1).
+        start = (last_exit > 0) ? last_exit + 1 : 1
+        
+        for (i = start; i <= NR; i++) {
+            print lines[i]
+        }
+    }
+' > "$OUTPUT_FILE"

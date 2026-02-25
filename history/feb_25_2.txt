@@ -1,0 +1,68 @@
+cd SUPERCOMPUTING/assignments/assignment_04
+ll
+nano summarize_fasta.sh 
+bash summarize_fasta.sh 
+cp data/GCF_000001735.4_TAIR10.1_genomic.fna data
+cp data/GCF_000001735.4_TAIR10.1_genomic.fna data/GCF_000001735.4_TAIR10.1_genomi.copy.fna 
+cd data
+ll
+u
+bash summarize_fasta.sh 
+nano summarize_fasta.sh 
+u
+cd assignment_04
+ll'
+ll
+nano README.md 
+for file in data/*.fna; do bash summarize_fasta.sh file; done
+nano summarize_fasta.sh 
+for file in data/*.fna; do bash summarize_fasta.sh file; done
+source ~/.bashrc
+for file in data/*.fna; do bash summarize_fasta.sh file; done
+bash summarize_fasta.sh data/GCF_000001735.4_TAIR10.1_genomi
+bash summarize_fasta.sh data/GCF_000001735.4_TAIR10.1_genomic.fna 
+for file in data/*.fna; do bash summarize_fasta.sh file; done
+nano summarize_fasta.sh 
+for file in data/*.fna; do bash summarize_fasta.sh file; done
+for file in data/*.fna; do bash summarize_fasta.sh ${fil}e; done
+for file in data/*.fna; do bash summarize_fasta.sh ${file}; done
+cp data/GCF_000001735.4_TAIR10.1_genomi.copy.fna data/GCF_000001735.4_TAIR10.1_genomic.copy.fna
+cd data/
+ll
+rm GCF_000001735.4_TAIR10.1_genomi.copy.fna 
+ll
+u
+nano summarize_fasta.sh 
+nano README.md 
+u
+nano .gitignore
+cd assignments/assignment_04
+ll
+nano README.md 
+u
+git status
+history
+history -a
+# 2. Retrieve the history and use 'awk' to filter it
+# This script looks for the last time "exit" was used and prints everything after it
+history | awk '
+    # If the line is exactly the command "exit" (ignoring the history number)
+    /^[ \t]*[0-9]+[ \t]+exit[ \t]*$/ {
+        last_exit = NR
+    }
+    {
+        # Remove the history number from the beginning of the line
+        sub(/^[ \t]*[0-9]+[ \t]+/, "")
+        # Store the clean command in memory
+        lines[NR] = $0
+    }
+    END {
+        # Start printing ONE line after the last exit. 
+        # (If "exit" isn'\''t found, start at line 1).
+        start = (last_exit > 0) ? last_exit + 1 : 1
+        
+        for (i = start; i <= NR; i++) {
+            print lines[i]
+        }
+    }
+' > "$OUTPUT_FILE"
