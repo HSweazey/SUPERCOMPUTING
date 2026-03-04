@@ -1,0 +1,120 @@
+cd programs/
+wget https://github.com/shenwei356/seqkit/releases/download/v2.10.1/seqkit_linux_amd64.tar.gz
+tar -xzf seqkit_linux_amd64.tar.gz
+ll
+rm seqkit_linux_amd64.tar.gz
+rm seqkit_linux_amd64.tar.gz.1
+ll
+cd
+seqkit
+mkdir ~/SUPERCOMPUTING/lessons/lesson_05
+seqkit stats ~/SUPERCOMPUTING/lessons/lesson_05/data
+seqkit stats ~/SUPERCOMPUTING/lessons/lesson_05/data/*.fastq
+cd SUPERCOMPUTING/lessons/lesson_05
+ll
+git status
+cd scripts/
+cat chop_files.sh 
+cat interleave_chop.sh 
+nano get_stats.sh
+u
+mkdir output
+ll
+nano scripts/get_stats.sh 
+ll
+nano pipeline.sh 
+cd scripts/
+ll
+chmod +x get_stats.sh 
+ll
+u
+ll
+chmod +x pipeline.sh 
+ll
+./pipeline.sh 
+cd scripts/
+ll
+u
+nano pipeline.sh 
+nano scripts/chop_files.sh 
+nano pipeline.sh 
+./pipeline.sh 
+./pipeline.sh 25
+nano pipeline.sh 
+./pipeline.sh 25
+nano pipeline.sh 
+nano scripts/chop_files.sh
+nano pipeline.sh 
+./pipeline.sh 25
+nano pipeline.sh 
+nano scripts/chop_files.sh 
+./pipeline.sh 25
+nano scripts/chop_files.sh 
+./pipeline.sh 25
+nano pipeline.sh 
+cat output/stats.tsv 
+tree
+nano scripts/chop_files.sh 
+./pipeline.sh 25
+./pipeline.sh {25, 50, 75}
+./pipeline.sh {25,50,75}
+for num in {25,50,75}; do ./pipeline.sh num; done
+for num in {25,50,75}; do echo $i; ./pipeline.sh ${num}; done
+ll
+cat data
+cd data/
+ll
+u
+cat output/*
+nano scripts/install_seqkit.sh
+nano README.md
+nano scripts/install_seqkit.sh 
+nano README.md 
+chmod +x scripts/install_seqkit.sh 
+cat README.md 
+u
+nano .gitignore
+cd lessons/lesson_05
+ll
+cd scripts/
+nano chop_files.sh 
+ll $SHARED_DIR/lesson_05/data
+nano chop_files.sh 
+u
+nano scripts/chop_files.sh 
+./pipeline.sh 25
+nano scripts/get_stats.sh 
+./pipeline.sh 25
+echo $SHARED_DIR
+nano pipeline.sh 
+nano scripts/get_stats.sh 
+./pipeline.sh 25
+nano scripts/get_stats.sh 
+echo $SHARED_DIR/lesson_05/data
+nano pipeline.sh 
+nano scripts/chop_files.sh 
+u
+history -a
+# 2. Retrieve the history and use 'awk' to filter it
+# This script looks for the last time "exit" was used and prints everything after it
+history | awk '
+    # If the line is exactly the command "exit" (ignoring the history number)
+    /^[ \t]*[0-9]+[ \t]+exit[ \t]*$/ {
+        last_exit = NR
+    }
+    {
+        # Remove the history number from the beginning of the line
+        sub(/^[ \t]*[0-9]+[ \t]+/, "")
+        # Store the clean command in memory
+        lines[NR] = $0
+    }
+    END {
+        # Start printing ONE line after the last exit. 
+        # (If "exit" isn'\''t found, start at line 1).
+        start = (last_exit > 0) ? last_exit + 1 : 1
+        
+        for (i = start; i <= NR; i++) {
+            print lines[i]
+        }
+    }
+' > "$OUTPUT_FILE"

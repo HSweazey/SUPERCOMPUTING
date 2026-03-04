@@ -1,0 +1,135 @@
+git pull
+cd SUPERCOMPUTING/
+git pull
+ll
+cd quizzes/
+ll
+mkdir quiz_04
+cd quiz_04
+nano count_stuff.sh
+chmod 755 count_stuff.sh 
+u
+bash quiz_04/count_stuff.sh quizzes
+bash quiz_04/count_stuff.sh quiz_01
+nano quiz_04/count_stuff.sh 
+bash quiz_04/count_stuff.sh quiz_01
+u
+bash quizzes/quiz_04/count_stuff.sh SUPERCOMPUTING
+cd quizzes/
+cd quiz_04
+nano count_stuff.sh 
+bash quizzes/quiz_04/count_stuff.sh SUPERCOMPUTING
+u
+bash SUPERCOMPUTING/quizzes/quiz_04/count_stuff.sh $HOME
+d
+cd quizzes/
+nano quiz_04
+cd quiz_04
+nano count_stuff.sh 
+count_stuff.sh ~ 49
+bash count_stuff.sh ~ 49
+u
+cd lessons/
+ll
+u
+cd $SHARED_DIR
+ll
+cd lesson_05/
+ll
+cp interleave_chop.sh ~/SUPERCOMPUTING/lessons/lesson_05
+cd
+nano .bashrc
+cd $SHARED_DIR
+cd lesson_05/
+cp * ~/SUPERCOMPUTING/lessons/lesson_05
+mkdir ~/SUPERCOMPUTING/lessons/lesson_05
+rm ~/SUPERCOMPUTING/lessons/lesson_05
+mkdir ~/SUPERCOMPUTING/lessons/lesson_05
+cp * ~/SUPERCOMPUTING/lessons/lesson_05
+pwd
+ll
+cd ~/SUPERCOMPUTING/lessons/lesson_05
+ll
+mkdir data; mv *.fastq data
+ll
+mkdir scripts; mv interleave_chop.sh scripts
+ll
+ls
+tree
+cd data
+ls 1
+ls -1
+ls -l
+u
+d
+ls -1 *_R1_sample.fastq
+ls -1 *_R1_sample.fastq | wc
+ls -1 *_R1_sample.fastq | wc -l
+for file in *_R1_*; do echo $file; :done; ;done
+for file in *_R1_*; do echo $file; done
+for FWD in *_R1_*;do echo $FWD;done
+for FWD in *_R1_*;do echo ${FWD/_R1_/_R2_};done
+for FWD in *R1_*;do echo $FWD%_L001_R1_sample.fastq};done
+for FWD in *R1_*;do echo ${FWD%_L001_R1_sample.fastq};done
+for FWD in *R1_*;do SAMPLENAME=${FWD%_L001_R1_sample.fastq};done
+for FWD in *R1_*; do REV=${FWD/_R1_/_R2_}; OUT=${FWD%_L001_R1_sample.fastq}_interleaved.fastq; echo $FWD $REV $OUT; done
+cd ..
+u
+d
+for FWD in data/*R1_*; do REV=${FWD/_R1_/_R2_}; OUT=${FWD%_L001_R1_sample.fastq}_interleaved.fastq; echo $FWD $REV $OUT; done
+for FWD in data/*R1_*; do REV=${FWD/_R1_/_R2_}; OUT=${FWD%_L001_R1_sample.fastq}_interleaved.fastq; echo $FWD $REV $OUT; ./scripts/interleave_chop.sh $FWD $REV $OUT 75 ;done
+cd data
+ll
+which seqkt
+cd ~/programs
+wget https://github.com/shenwei356/seqkit/releases/download/v2.10.1/seqkit_linux_amd64.tar.gz
+tar -xzf seqkit_linux_amd64.tar.gz
+which seqkit
+which seqkt
+where seqtk
+which seqtk
+ll
+cd ~/SUPERCOMPUTING/lessons/lesson_05
+cd data
+seqkit stats
+u
+nano scripts/chop_files.sh
+tree
+chmod +x scripts/chop_files.sh 
+./scripts/chop_files.sh 100
+nano scripts/chop_files.sh 
+./scripts/chop_files.sh 50
+u
+d
+./scripts/chop_files.sh 25
+cd data/
+rm *interleaved*
+ll
+u
+touch pipeline.sh
+u
+nano .gitignore
+history -a
+# 2. Retrieve the history and use 'awk' to filter it
+# This script looks for the last time "exit" was used and prints everything after it
+history | awk '
+    # If the line is exactly the command "exit" (ignoring the history number)
+    /^[ \t]*[0-9]+[ \t]+exit[ \t]*$/ {
+        last_exit = NR
+    }
+    {
+        # Remove the history number from the beginning of the line
+        sub(/^[ \t]*[0-9]+[ \t]+/, "")
+        # Store the clean command in memory
+        lines[NR] = $0
+    }
+    END {
+        # Start printing ONE line after the last exit. 
+        # (If "exit" isn'\''t found, start at line 1).
+        start = (last_exit > 0) ? last_exit + 1 : 1
+        
+        for (i = start; i <= NR; i++) {
+            print lines[i]
+        }
+    }
+' > "$OUTPUT_FILE"

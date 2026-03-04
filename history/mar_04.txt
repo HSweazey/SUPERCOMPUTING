@@ -1,0 +1,188 @@
+cd SUPERCOMPUTING/
+git status
+git pull
+tree --version
+cd assignments/assignment_05
+ll
+mkdir scripts
+mkdir log
+mkdir data
+mkdir data/raw
+mkdir data/trimmed
+brew install tree
+ll
+nano scripts/01_download_data.sh
+cd scripts/
+ll
+u
+./scripts/01_download_data.sh
+chmod +x ./scripts/01_download_data.sh
+./scripts/01_download_data.sh
+nano scripts/01_download_data.sh 
+./scripts/01_download_data.sh
+ll
+cd data/
+ll
+cd raw/
+ll
+u
+nano scripts/01_download_data.sh 
+u
+cd assignment_04
+ll
+cd
+cd programs/
+ll
+nano install_fastq.sh
+ll
+nano install_seqtk.sh 
+nano install_fastq.sh 
+chmod +x install_fastq.sh 
+ll
+./install_fastq.sh 
+ll
+u
+cd SUPERCOMPUTING/
+cd assignments/assignment_05
+ll
+nano ./scripts/02_run_fastp.sh
+cd data
+ll
+cd raw
+ll
+u
+nano scripts/02_run_fastp.sh 
+cd scripts/
+ll
+chmod +x 02_run_fastp.sh 
+ll
+u
+cd data/
+ll
+cd raw/
+ll
+u
+scripts/02_run_fastp.sh 6083_001_S1_R1_001.subset.fastq.gz
+nano scripts/02_run_fastp.sh 
+scripts/02_run_fastp.sh data/raw/6083_001_S1_R1_001.subset.fastq.gz
+cd data/
+ll
+cd trimmed/
+ll
+u
+cd scripts/
+ll
+u
+cd log/
+ll
+cat 6083_001_S1_R1_001.subset.fastq.gz_fastp.html 
+u
+nano pipeline.sh
+nano scripts/02_run_fastp.sh 
+nano pipeline.sh 
+cd data/
+cd raw/
+rm u
+u
+rm raw/*fastq.gz
+cd raw/
+ll
+u
+rm trimmed/*html
+cd trimmed/
+ll
+rm *fastq.gz
+ll
+u
+chmod +x pipeline.sh 
+ll
+./pipeline.sh 
+nano pipeline.sh 
+rm data/raw/*fastq.gz
+rm data/trimmed/*fastq.gz
+nano pipeline.sh 
+./pipeline.sh 
+cd data/
+ll
+cd raw
+ll
+u
+cd trimmed/
+ll
+u
+ll
+u
+nano pipeline.sh 
+nano scripts/02_run_fastp.sh 
+rm data/raw/*
+rm data/trimmed/*
+./pipeline.sh 
+cd data/raw
+ll
+u
+nano pipeline.sh 
+rm data/trimmed/*
+rm data/raw/*
+ll
+./pipeline.sh 
+cd data
+cd trimmed/
+ll
+u
+cd log/
+ll
+u
+nano scripts/02_run_fastp.sh 
+cd log/
+ll
+u
+nano scripts/02_run_fastp.sh 
+cd data/raw
+ll
+u
+nano scripts/02_run_fastp.sh 
+rm data/raw/*
+rm data/trimmed//*
+rm data/trimmed/*
+rm log/*
+./pipeline.sh 
+cd log/
+ll
+u
+nano scripts/02_run_fastp.sh 
+rm data/raw/*
+rm data/trimmed/*
+rm log/*
+./pipeline.sh
+cd data/trimmed/
+ll
+u
+cd log/
+ll
+u
+nano pipeline.sh 
+nano scripts/02_run_fastp.sh 
+history -a
+# 2. Retrieve the history and use 'awk' to filter it
+# This script looks for the last time "exit" was used and prints everything after it
+history | awk '
+    # If the line is exactly the command "exit" (ignoring the history number)
+    /^[ \t]*[0-9]+[ \t]+exit[ \t]*$/ {
+        last_exit = NR
+    }
+    {
+        # Remove the history number from the beginning of the line
+        sub(/^[ \t]*[0-9]+[ \t]+/, "")
+        # Store the clean command in memory
+        lines[NR] = $0
+    }
+    END {
+        # Start printing ONE line after the last exit. 
+        # (If "exit" isn'\''t found, start at line 1).
+        start = (last_exit > 0) ? last_exit + 1 : 1
+        
+        for (i = start; i <= NR; i++) {
+            print lines[i]
+        }
+    }
+' > "$OUTPUT_FILE"
