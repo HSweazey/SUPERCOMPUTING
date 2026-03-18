@@ -1,0 +1,4 @@
+name: flye-env
+channels:
+  - conda-forge
+prefix: /sciclone/home/hrsweazey/.conda/envs/flye-env

@@ -1,0 +1,34 @@
+# Supercomputing Assignment 5 and Setup Guide
+**Name:** Hannah Sweazey
+
+**Due Date:** March 4, 2026
+
+In this assignment, we were tasked with: 
+- Downloading tools in our ./programs directory
+- Developing scripts to trim and process fastq data
+- Creating a pipeline to automate steps in the analysis process
+- Using quality documentation techniques
+
+## Tools and Prerequisites
+
+To use this pipeline requires two things of your environment (assuming you are using bash).
+
+### 1. Install the fastp tool
+
+Navigate to your ./programs directory (or wherever you want to keep your tool) and install the fastp tool.
+The following is a short script I developed for installation and cleaning. 
+**Your path will be different, so change accordingly if you want to be able to access this tool from anywhere on your machine**
+
+```bash
+#!/bin/bash
+set -ueo pipefail
+
+wget http://opengene.org/fastp/fastp
+chmod a+x ./fastp
+
+echo 'export PATH=$PATH:/sciclone/home/hrsweazey/programs/fastp' >> ~/.bashrc
+```
+
+*This installed the latest version of the fastp tool which as of March 4, 2026 is version 1.1.0)*
+
+### 2. 

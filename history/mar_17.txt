@@ -1,0 +1,286 @@
+cd SUPERCOMPUTING/
+nano .gitignore
+cd assignments/assignment_05
+ll
+u
+git status
+git add assignments/assignment_05/log
+git add assignments/assignment_05/pipeline.sh 
+git add assignments/assignment_05/scripts/
+git add history/feb_26.txt 
+git add history/
+git add lessons/lesson_05
+git add quizzes/quiz_04
+git status
+git add .gitignore
+git commit -m "Assignment 5, history, quiz 4, gitignore"
+git push
+cd assignments/assignment_05
+nano README.md
+cd SUPERCOMPUTING/
+cd quizzes/
+ll
+mkdir quiz_05
+cd quiz_05
+nano pipeline.sh
+u
+nano test
+rm test
+ll
+cd
+which conda
+module load miniforge3
+which conda
+echo $PATH
+cd miniforge3
+find . -name "*.sh"
+ll
+cd etc
+echo "$(conda info --base)"
+cd /sciclone/apps/miniforge3-24.9.2-0
+find . -name "conda.sh"
+cd
+cd SUPERCOMPUTING/lessons
+ll
+mkdir lesson_06
+cd lesson_06
+source "$(conda info --base)/etc/profile.d/conda.sh"
+mamba create -y -n bbmap-env bbmap -c bioconda
+mamba activate bbmap-env
+conda activate bbmap-env
+which bbmap.sh
+ll ~/.conda/envs/bbmap-env/bin/bbmap.sh
+cd
+cd programs/
+nano bbmap-env.yaml
+cd SUPERCOMPUTING/lessons/
+ll
+cd lesson_06
+bbmap-env
+module load miniforge3/
+source "$(conda info --base)/etc/profile.d/conda.sh
+"
+conda activate bbmap-env
+u
+cd programs/
+ll
+nano bbmap-env.yaml 
+u
+cd SUPERCOMPUTING/lessons/lesson_06
+module load miniforge3/
+source "$(conda info --base)/etc/profile.d/conda.sh" 
+conda activate bbmap-env
+wget https://zenodo.org/records/15733378/files/ecoli_and_lambda.tar
+ll
+rm ecoli_and_lambda.tar 
+nano download.sh
+chmod -x download.sh 
+download.sh
+bash download.sh
+ll
+bbmap.sh ref=ecoli_bl21de3.fasta \ # our reference seqs
+in=lambda_reads.fastq \ # our query seqs
+out=mapping.sam \ # our output file
+nodisk=t \ # don't save the index to disk
+ambiguous=best \ # if multiple matches, pick best one
+minid=0.9 \ # at least 90% identity required to "match"
+threads=2 # only use a couple threads
+ll
+cd ref/
+ll
+u
+ll
+nano mapping.sam
+ll
+rm mapping.sam 
+bbmap.sh ref=ecoli_bl21de3.fasta   in=lambda_reads.fastq   out=mapping.sam   nodisk=t   ambiguous=best   minid=0.9   threads=2
+ll
+conda deactivate
+nano test.slurm
+ll
+rm download.sh 
+ll
+rm ref/
+sbatch test.slurm
+sacct
+whoami
+groups
+ll
+cat helloworld_285646.out 
+sbatch test.slurm
+sacct
+scancel 285669
+sacct
+ll
+cat helloworld_285669.err 
+sinfo
+scontrol show node hi01
+u
+ll
+nano .gitignore
+cd lessons/lesson_06
+ll
+cat test.slurm
+nano
+nano run_bbmap.sh
+ll
+nano lambda.slurm 
+nano run_bbmap.sh 
+ll
+chmod -xr run_bbmap.sh 
+ll
+chmod -x run_bbmap.sh 
+ll
+rm -r ref/
+ll
+rm helloworld_2856*
+ll
+mkdir data
+mkdir scripts
+ll
+mv run_bbmap.sh scripts/
+ll
+cd scripts/
+ll
+nano run_bbmap.sh 
+ll
+nano run_bbmap.sh
+ll
+chmod -xr run_bbmap.sh 
+ll
+chmod -x run_bbmap.sh 
+ll
+u
+ll
+nano scripts/run_bbmap.sh 
+cd scripts/
+ll
+chmod 557 run_bbmap.sh 
+ll
+nano run_bbmap.sh 
+ll
+chmod 577 run_bbmap2.sh
+ll
+u
+mkdir output
+rm ecoli_bl21de3.fasta 
+rm mapping.sam 
+ll
+rm lambda_reads.fastq 
+ll
+nano lambda.slurm 
+sbatch lambda.slurm
+sacct
+cd output/
+ll
+cd
+cd SUPERCOMPUTING/lessons/lesson_06
+ll
+cat phage_285738.err 
+cd scripts/
+ll
+u
+nano lambda.slurm 
+sbatch lambda.slurm
+sacct
+ll
+cat phage_285744.err 
+nano scripts/run_bbmap2.sh 
+chmod -x scripts/run_bbmap3.sh
+nano lambda.slurm 
+sbatch lambda.slurm
+sacct
+ll
+cat phage_285751.err 
+ll
+rm phage*
+cd scripts/
+ll
+chmod 557 run_bbmap3.sh
+u
+sbatch lambda.slurm
+sacct
+ll
+cat phage_285753.err 
+nano lambda.slurm
+sbatch lambda.slurm
+sacct
+ll
+cat phage_285755.err 
+nano lambda.slurm 
+sbatch lambda.slurm
+sacct
+ll
+cat phage_285756.err 
+nano lambda.slurm 
+sbatch lambda.slurm
+sacct
+ll
+cat phage_285757.err 
+ll
+nano lambda.slurm 
+rm phage_*
+ll
+sbatch lambda.slurm
+sacct
+ll
+cat phage_285758.err 
+cd scripts/
+ll
+nano run_bbmap3.sh
+rm run*
+ll
+nano run_bbmap.sh
+chmod 755 run_bbmap.sh 
+ll
+u
+rm phage*
+l
+ll
+nano lambda.slurm 
+sbatch lambda.slurm
+sacct
+ll
+cat phage_285759.err 
+nano lambda.slurm 
+cat phage_285759.err ll
+ll
+rm phage_285759*
+ll
+sbatch lambda.slurm
+sacct
+ll
+cat phage_285760.err 
+nano lambda.slurm 
+ll
+rm phage_285760*
+ll
+sbatch lambda.slurm 
+sacct
+cat phage_285761.err 
+cd scripts/
+ll
+history -a
+# 2. Retrieve the history and use 'awk' to filter it
+# This script looks for the last time "exit" was used and prints everything after it
+history | awk '
+    # If the line is exactly the command "exit" (ignoring the history number)
+    /^[ \t]*[0-9]+[ \t]+exit[ \t]*$/ {
+        last_exit = NR
+    }
+    {
+        # Remove the history number from the beginning of the line
+        sub(/^[ \t]*[0-9]+[ \t]+/, "")
+        # Store the clean command in memory
+        lines[NR] = $0
+    }
+    END {
+        # Start printing ONE line after the last exit. 
+        # (If "exit" isn'\''t found, start at line 1).
+        start = (last_exit > 0) ? last_exit + 1 : 1
+        
+        for (i = start; i <= NR; i++) {
+            print lines[i]
+        }
+    }
+' > "$OUTPUT_FILE"
