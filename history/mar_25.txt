@@ -1,0 +1,275 @@
+cd SUPERCOMPUTING/assignments/assignment_07
+ll
+nano scripts/01_download_data.sh 
+which fastq
+cd
+cd programs/
+ll
+nano install_sra.sh 
+./install_sra.sh 
+source ~/.bashrc
+which fastq
+which fastq-dump
+u
+cd SUPERCOMPUTING/assignments/assignment_07
+ll
+which datasets
+ll
+nano scripts/01_download_data.sh 
+cd scripts/
+ll
+u
+chmod 755 scripts/01_download_data.sh 
+cd scripts/
+ll
+nano 02_clean_reads.sh 
+nano 03_map_reads.sh 
+which samtools
+cd
+cd programs/
+ll
+u
+nano .bashrc
+source ~/.bashrc
+which samtools
+nano .bashrc
+source ~/.bashrc
+which samtools
+cd programs/
+ll
+cd samtools-1.23/
+ll
+u
+nano install_sam.sh 
+ll
+rm -rf samtools-1.23/
+./install_sam.sh 
+nano install_sam.sh 
+ll
+rm samtools-1.23.tar.bz2 
+rm -rf samtools-1.23/
+ll
+./install_sam.sh 
+ll
+cd samtools-1.23
+ll
+u
+source ~/.bashrc
+which samtools
+rm samtools-1.23.tar.bz2 
+cd
+cd SUPERCOMPUTING/assignments/assignment_07
+nano scripts/03_map_reads.sh 
+u
+cp assignment_06/data/SRR33939694.fastq.gz assignment_07/data/raw
+cd assignment_07
+cd data/raw
+ll
+u
+nano scripts/01
+nano scripts/01_download_data.sh 
+nano scripts/01_download_data_test.sh 
+nano scripts/02_clean_reads.sh 
+nano scripts/02_clean_reads_test.sh 
+rm scripts/02_clean_reads_test.sh 
+rm scripts/01_download_data_test.sh 
+nano scripts/03_map_reads.sh 
+nano assignment_7_pipeline.slurm 
+chmod 755 scripts/02_clean_reads.sh 
+chmod 755 scripts/03_map_reads.sh 
+cd scripts/
+ll
+u
+cd data/
+ll
+cd raw/
+ll
+rm SRR33939694.fastq.gz 
+u
+nano scripts/01_download_data.sh 
+nano scripts/02_clean_reads.sh 
+nano scripts/03_map_reads.sh 
+nano assignment_7_pipeline.slurm 
+nano scripts/02_clean_reads.sh 
+nano scripts/03_map_reads.sh 
+sbatch assignment_7_pipeline.slurm 
+sacct
+cat output/assignment_07.err
+cat output/assignment_07.out
+ll
+cd data/
+ll
+cd raw/
+ll
+u
+cd clean/
+ll
+u
+cd fasterq.tmp.bo14.sciclone.wm.edu.1483546/
+ll
+u
+cd output/
+ll
+cat assignment_07.err 
+u
+sacct
+ll
+sacct
+cat output/assignment_07.out
+cat output/assignment_07.err
+sacct
+u
+nano .gitignore 
+cd assignments/assignment_07
+saact
+sacct
+ll
+cat output/
+cat output/assignment_07.err 
+cat output/assignment_07.out 
+cat saact
+cat output/assignment_07.err 
+ll
+cd fasterq.tmp.bo14.sciclone.wm.edu.1484081/
+ll
+u
+cat output/assignment_07.err 
+cd data/dog_reference/
+ll
+u
+nano scripts/03_map_reads.sh 
+nano scripts/02_clean_reads.sh 
+nano scripts/01_download_data.sh 
+sacct
+mv data/dog_reference/GCF_011100685.1_UU_Cfam_GSD_1.0_genomic.fna  data/dog_reference/dog_reference_genome.fna
+cd data/dog_reference/
+ll
+u
+nano scripts/01_download_data.sh 
+sacct
+ll
+cat output/assignment_07.err 
+cat output/assignment_07.out 
+nano scripts/01_download_data.sh 
+cat output/assignment_07.err 
+cat output/assignment_07.out 
+sacct
+scancel 286871
+cd data/
+ll
+cd raw/
+ll
+rm SRR*
+ll
+u
+cd clean/
+ll
+u
+cd dog_reference/
+ll
+rm dog_reference_genome.fna 
+u
+rm -rf fasterq.tmp.bo14.sciclone.wm.edu.1484081/
+ll
+nano scripts/01_download_data.sh 
+nano scripts/02_clean_reads.sh 
+nano scripts/03_map_reads.sh 
+nano assignment_7_pipeline.slurm 
+sbatch assignment_7_pipeline.slurm 
+sacct
+ll
+cat output/assignment_07.err 
+cat output/assignment_07.out 
+cd data/dog_reference/
+ll
+u
+cd raw/
+ll
+u
+cd fasterq.tmp.bo14.sciclone.wm.edu.1484909/
+ll
+u
+nano README.md 
+sacct
+ll
+cd data/
+ll
+cd clean/
+ll
+u
+cd raw/
+ll
+u
+sacct
+u
+cat output/assignment_07.err 
+cat output/assignment_07.out
+ll
+cd output/
+ll
+u
+cd data/
+ll
+cd clean/
+ll
+u
+cd raw/
+ll
+u
+cd dog_reference/
+ll
+u
+sacct
+squeue
+ll
+cat output/assignment_07.
+cat output/assignment_07.err 
+cat output/assignment_07.out
+cd data/
+ll
+cd raw/
+ll
+sacct
+ll
+saact
+sacct
+u
+squeue
+sacct
+scancel 286875
+sacct
+ll
+rm -rf fasterq.tmp.bo14.sciclone.wm.edu.1486433/
+cat output/assignment_07.err 
+cat output/assignment_07.out 
+ll
+rm data/dog_reference/*
+rm data/raw/*
+ll
+nano scripts/01_download_data.sh 
+nano scripts/02_clean_reads.sh 
+nano scripts/03_map_reads.sh 
+history -a
+# 2. Retrieve the history and use 'awk' to filter it
+# This script looks for the last time "exit" was used and prints everything after it
+history | awk '
+    # If the line is exactly the command "exit" (ignoring the history number)
+    /^[ \t]*[0-9]+[ \t]+exit[ \t]*$/ {
+        last_exit = NR
+    }
+    {
+        # Remove the history number from the beginning of the line
+        sub(/^[ \t]*[0-9]+[ \t]+/, "")
+        # Store the clean command in memory
+        lines[NR] = $0
+    }
+    END {
+        # Start printing ONE line after the last exit. 
+        # (If "exit" isn'\''t found, start at line 1).
+        start = (last_exit > 0) ? last_exit + 1 : 1
+        
+        for (i = start; i <= NR; i++) {
+            print lines[i]
+        }
+    }
+' > "$OUTPUT_FILE"
